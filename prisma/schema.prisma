@@ -20,13 +20,13 @@ model Form {
   description String   @default("")
   content     String   @default("[]")
   visits      Int      @default(0)
-  submitions  Int      @default(0)
+  submissions Int      @default(0)
 
   shareUrl       String           @default(uuid())
-  FormSubmitions FormSubmitions[]
+  FormSubmission FormSubmission[]
 }
 
-model FormSubmitions {
+model FormSubmission {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   formId    Int
