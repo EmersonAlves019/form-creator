@@ -24,15 +24,20 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { accessSync } from 'fs';
 import { createForm } from '@/actions/form';
+import { useRouter } from 'next/navigation';
 
 export function CreateFormButton() {
+  const router = useRouter();
   const form = useForm<CreateNewFormSchema>({
     resolver: zodResolver(createNewFormSchema),
   });
 
   const onSubmit = async (data: CreateNewFormSchema) => {
     try {
-      await createForm(data);
+     const formId = await createForm(data);
+
+     router.push(`/builder/${formId}`)
+
       toast({
         title: 'Success',
         description: 'Your form has been created successfully.',
@@ -50,11 +55,11 @@ export function CreateFormButton() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          variant='outline'
-          className='group border border-primary/80 bg-background h-[190px] flex flex-col justify-center hover:cursor-pointer border-dashed gap-4 hover:bg-muted'
+          variant="outline"
+          className="group border border-primary/80 bg-background h-[190px] flex flex-col justify-center hover:cursor-pointer border-dashed gap-4 hover:bg-muted"
         >
-          <BsFileEarmarkPlus className='h-8 w-8 text-muted-foreground group-hover:text-primary' />
-          <p className='font-bold text-xl text-muted-foreground group-hover:text-primary'>
+          <BsFileEarmarkPlus className="h-8 w-8 text-muted-foreground group-hover:text-primary" />
+          <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">
             Create new form
           </p>
         </Button>
@@ -66,23 +71,23 @@ export function CreateFormButton() {
             Create a new form to start collecting responses.
           </DialogDescription>
         </DialogHeader>
-        <div className='flex flex-col gap-4 py-4'>
+        <div className="flex flex-col gap-4 py-4">
           <CreateNewForm form={form} onSubmit={onSubmit} />
         </div>
 
         <DialogFooter>
-          <Button className='mr-2' variant='outline'>
+          <Button className="mr-2" variant="outline">
             Cancel
           </Button>
           <Button
-            type='submit'
+            type="submit"
             onClick={form.handleSubmit(onSubmit)}
-            className='gap-1'
+            className="gap-1"
             disabled={form.formState.isSubmitting || !form.formState.isValid}
           >
             <span>Create</span>
             {form.formState.isSubmitting && (
-              <ImSpinner2 className='animate-spin' />
+              <ImSpinner2 className="animate-spin" />
             )}
           </Button>
         </DialogFooter>
