@@ -6,6 +6,7 @@ import { PublishFormButton } from '../Buttons/PublishFormButton';
 import { SaveFormButton } from '../Buttons/SaveFormButton';
 import { Designer } from '../Designer';
 import { FormBuilderProps } from './@types';
+import { DragOverlayWrapper } from '../DragOverlayWrapper';
 
 export function FormBuilder({ form }: FormBuilderProps) {
   return (
@@ -30,6 +31,7 @@ export function FormBuilder({ form }: FormBuilderProps) {
           <Designer />
         </div>
       </main>
+      <DragOverlayWrapper />
     </DndContext>
   );
 }
