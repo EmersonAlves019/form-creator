@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatsCardProps } from './@types';
-import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
-import { Skeleton } from '../ui/skeleton';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Skeleton } from '../../ui/skeleton';
 
 export function StatsCard({
   title,

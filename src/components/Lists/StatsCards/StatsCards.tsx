@@ -4,7 +4,7 @@ import { HiCursorClick } from 'react-icons/hi';
 import { TbArrowBounce } from 'react-icons/tb';
 
 import { StatsCardsProps } from './@types';
-import { StatsCard } from '../Cards';
+import { StatsCard } from '@/components/Cards';
 
 export function StatsCards({ data, loading }: StatsCardsProps) {
   return (
