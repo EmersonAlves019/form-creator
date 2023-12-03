@@ -1,1 +1,1 @@
-export { PublishFormButton } from './PublishFormButton'
+export { PublishFormButton } from './PublishFormButton';

@@ -1,1 +1,1 @@
-export {DesignerFormElementWrapper} from './DesignerFormElementWrapper'
+export { DesignerFormElementWrapper } from './DesignerFormElementWrapper';

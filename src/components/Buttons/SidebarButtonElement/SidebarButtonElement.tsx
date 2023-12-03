@@ -1,7 +1,9 @@
-import { Button } from '@/components/ui/button';
-import { SidebarButtonElementProps } from './@types';
 import { useDraggable } from '@dnd-kit/core';
+
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+
+import type { SidebarButtonElementProps } from './@types';
 
 export function SidebarButtonElement({
   formElement,
@@ -41,7 +43,7 @@ export function SidebarButtonElementOverlay({
   return (
     <Button
       variant="outline"
-      className="flex text-foreground flex-col gap-2 h-[120px] w-[120px] cursor-grab"
+      className="flex h-[120px] w-[120px] cursor-grab flex-col gap-2 text-foreground"
     >
       <Icon className="h-8 w-8  cursor-grab" />
       <p className="tex-xs">{label}</p>

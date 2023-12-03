@@ -1,12 +1,14 @@
+'use client';
+
 import { useDraggable, useDroppable } from '@dnd-kit/core';
-import { FormElements } from '../Forms/FormElements';
-import { DesignerFormElementWrapperProps } from './@types';
 import { useState } from 'react';
-import { Button } from '../ui/button';
-import { BiSolidTrash } from 'react-icons/bi';
-import { RemoveFormElementButton } from '../Buttons/RemoveFormElementButton';
+
 import { cn } from '@/lib/utils';
 import { useBoundStore } from '@/store/useBoundStore';
+
+import { RemoveFormElementButton } from '../Buttons/RemoveFormElementButton';
+import { FormElements } from '../Forms/FormElements';
+import type { DesignerFormElementWrapperProps } from './@types';
 
 export function DesignerFormElementWrapper({
   element,
@@ -50,37 +52,38 @@ export function DesignerFormElementWrapper({
       ref={draggable.setNodeRef}
       {...draggable.attributes}
       {...draggable.listeners}
-      className="relative h-[120px] flex flex-col text-foreground hover:cursor-pointer rounded-md ring-1 ring-foreground/40"
+      className="relative flex h-[120px] flex-col rounded-md text-foreground ring-1 ring-foreground/40 hover:cursor-pointer"
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
       onClick={(e) => {
         e.stopPropagation();
         setSelectedElement(element);
       }}
+      role="presentation"
     >
       <div
         ref={topHalf.setNodeRef}
-        className={'absolute w-full h-1/2 rounded-t-md'}
-      ></div>
+        className="absolute h-1/2 w-full rounded-t-md"
+      />
       <div
         ref={bottomHalf.setNodeRef}
-        className="absolute bottom-0 w-full h-1/2 rounded-b-md"
-      ></div>
+        className="absolute bottom-0 h-1/2 w-full rounded-b-md"
+      />
       {mouseIsOver && (
         <>
           <RemoveFormElementButton elementId={element.id} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse">
-            <p className="text-muted-foreground text-sm">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse">
+            <p className="text-sm text-muted-foreground">
               Click for properties or drag to move
             </p>
           </div>
         </>
       )}
       {topHalf.isOver && (
-        <div className="absolute top-0 w-full h-2 bg-foreground rounded-md rounded-b-none" />
+        <div className="absolute top-0 h-2 w-full rounded-md rounded-b-none bg-foreground" />
       )}
       {bottomHalf.isOver && (
-        <div className="absolute bottom-0 w-full h-2 bg-foreground rounded-md rounded-t-none" />
+        <div className="absolute bottom-0 h-2 w-full rounded-md rounded-t-none bg-foreground" />
       )}
       <div
         className={cn(

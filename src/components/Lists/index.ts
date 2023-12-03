@@ -1,4 +1,2 @@
-export { StatsCards } from './StatsCards';
-export {FormCards} from './FormCards'
-export {FormElementsSidebar} from './FormElementsSidebar'
-export {DesignerFormElements} from './DesignerFormElements'
+export { DesignerFormElements } from './DesignerFormElements';
+export { FormElementsSidebar } from './FormElementsSidebar';

@@ -1,1 +1,4 @@
-export {SidebarButtonElement, SidebarButtonElementOverlay} from './SidebarButtonElement'
+export {
+  SidebarButtonElement,
+  SidebarButtonElementOverlay,
+} from './SidebarButtonElement';

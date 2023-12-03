@@ -1,3 +1,3 @@
 export function FormPropertiesForm() {
-  return <div></div>;
+  return <div />;
 }

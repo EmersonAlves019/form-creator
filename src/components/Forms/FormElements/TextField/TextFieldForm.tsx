@@ -1,3 +1,3 @@
 export function TextFieldForm() {
-  return <div></div>;
+  return <div />;
 }

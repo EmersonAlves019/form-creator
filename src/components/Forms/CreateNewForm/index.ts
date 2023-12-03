@@ -1,1 +1,1 @@
-export {CreateNewForm} from './CreateNewForm'
+export { CreateNewForm } from './CreateNewForm';

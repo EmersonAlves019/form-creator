@@ -1,7 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { BsFileEarmarkPlus } from 'react-icons/bs';
+import { ImSpinner2 } from 'react-icons/im';
 
+import { createForm } from '@/actions/form';
 import { CreateNewForm } from '@/components/Forms';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,18 +18,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { BsFileEarmarkPlus } from 'react-icons/bs';
-import { ImSpinner2 } from 'react-icons/im';
-import {
-  CreateNewFormSchema,
-  createNewFormSchema,
-} from '@/lib/validations/createFormSchema';
 import { toast } from '@/components/ui/use-toast';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { accessSync } from 'fs';
-import { createForm } from '@/actions/form';
-import { useRouter } from 'next/navigation';
+import type { CreateNewFormSchema } from '@/lib/validations/createFormSchema';
+import { createNewFormSchema } from '@/lib/validations/createFormSchema';
 
 export function CreateFormButton() {
   const router = useRouter();
@@ -34,9 +30,9 @@ export function CreateFormButton() {
 
   const onSubmit = async (data: CreateNewFormSchema) => {
     try {
-     const formId = await createForm(data);
+      const formId = await createForm(data);
 
-     router.push(`/builder/${formId}`)
+      router.push(`/builder/${formId}`);
 
       toast({
         title: 'Success',
@@ -56,10 +52,10 @@ export function CreateFormButton() {
       <DialogTrigger asChild>
         <Button
           variant="outline"
-          className="group border border-primary/80 bg-background h-[190px] flex flex-col justify-center hover:cursor-pointer border-dashed gap-4 hover:bg-muted"
+          className="group flex h-[190px] flex-col justify-center gap-4 border border-dashed border-primary/80 bg-background hover:cursor-pointer hover:bg-muted"
         >
           <BsFileEarmarkPlus className="h-8 w-8 text-muted-foreground group-hover:text-primary" />
-          <p className="font-bold text-xl text-muted-foreground group-hover:text-primary">
+          <p className="text-xl font-bold text-muted-foreground group-hover:text-primary">
             Create new form
           </p>
         </Button>

@@ -1,1 +1,1 @@
-export {PreviewDialogButton} from './PreviewDialogButton'
+export { PreviewDialogButton } from './PreviewDialogButton';

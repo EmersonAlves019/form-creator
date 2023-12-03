@@ -1,1 +1,1 @@
-export {DesignerSidebar} from './DesignerSidebar'
+export { DesignerSidebar } from './DesignerSidebar';

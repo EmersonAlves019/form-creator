@@ -1,3 +1,3 @@
 export function TextFieldProperties() {
-  return <div></div>;
+  return <div />;
 }

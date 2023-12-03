@@ -1,9 +1,9 @@
 import { getForms } from '@/actions/form';
-import { FormCard } from '@/components/Cards';
+import { FormCard } from '@/components/Cards/FormCard';
 
 export async function FormCards() {
   const forms = await getForms();
-  
+
   return (
     <>
       {forms.map((form) => (

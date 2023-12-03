@@ -1,1 +1,1 @@
-export {FormElementsSidebar} from './FormElementsSidebar'
+export { FormElementsSidebar } from './FormElementsSidebar';

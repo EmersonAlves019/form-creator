@@ -1,1 +1,1 @@
-export { DragOverlayWrapper } from './DragOverlayWrapper'
+export { DragOverlayWrapper } from './DragOverlayWrapper';

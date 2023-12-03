@@ -1,1 +1,1 @@
-export {Designer} from './Designer'
+export { Designer } from './Designer';

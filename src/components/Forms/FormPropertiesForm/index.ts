@@ -1,1 +1,1 @@
-export {FormPropertiesForm} from './FormPropertiesForm'
+export { FormPropertiesForm } from './FormPropertiesForm';

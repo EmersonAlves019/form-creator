@@ -1,1 +1,1 @@
-export { FormBuilder } from './FormBuilder'
+export { FormBuilder } from './FormBuilder';

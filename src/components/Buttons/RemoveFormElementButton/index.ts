@@ -1,1 +1,1 @@
-export {RemoveFormElementButton} from './RemoveFormElementButton'
+export { RemoveFormElementButton } from './RemoveFormElementButton';

@@ -1,7 +1,9 @@
+import { BiSolidTrash } from 'react-icons/bi';
+
 import { Button } from '@/components/ui/button';
 import { useBoundStore } from '@/store/useBoundStore';
-import { BiSolidTrash } from 'react-icons/bi';
-import { RemoveFormElementButtonProps } from './@types';
+
+import type { RemoveFormElementButtonProps } from './@types';
 
 export function RemoveFormElementButton({
   elementId,
@@ -11,14 +13,13 @@ export function RemoveFormElementButton({
     <div className="absolute right-0 h-full">
       <Button
         variant="outline"
-        className="flex justify-center h-full border rounded-l-none bg-red-500"
+        className="flex h-full justify-center rounded-l-none border bg-red-500"
         onClick={(e) => {
-          e.stopPropagation()
-          removeElement(elementId)
-        } 
-      }
+          e.stopPropagation();
+          removeElement(elementId);
+        }}
       >
-        <BiSolidTrash className="w-6 h-6" />
+        <BiSolidTrash className="h-6 w-6" />
       </Button>
     </div>
   );

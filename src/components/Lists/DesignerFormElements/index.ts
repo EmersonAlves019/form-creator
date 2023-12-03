@@ -1,1 +1,1 @@
-export {DesignerFormElements} from './DesignerFormElements'
+export { DesignerFormElements } from './DesignerFormElements';

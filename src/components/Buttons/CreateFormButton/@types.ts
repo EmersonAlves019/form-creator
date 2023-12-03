@@ -1,5 +1,3 @@
-import React from "react";
-
 export type StatsCardProps = {
   title: string;
   icon: React.ReactNode;

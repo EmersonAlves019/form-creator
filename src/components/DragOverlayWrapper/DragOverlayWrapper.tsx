@@ -1,9 +1,12 @@
-import { Active, DragOverlay, useDndMonitor } from '@dnd-kit/core';
+import type { Active } from '@dnd-kit/core';
+import { DragOverlay, useDndMonitor } from '@dnd-kit/core';
 import { useState } from 'react';
-import { FormElements } from '../Forms/FormElements';
-import { ElementsType } from '../Forms/FormElements/@types';
-import { SidebarButtonElementOverlay } from '../Buttons/SidebarButtonElement';
+
 import { useBoundStore } from '@/store/useBoundStore';
+
+import { SidebarButtonElementOverlay } from '../Buttons/SidebarButtonElement';
+import { FormElements } from '../Forms/FormElements';
+import type { ElementsType } from '../Forms/FormElements/@types';
 
 export function DragOverlayWrapper() {
   const [draggedItem, setDraggedItem] = useState<Active | null>(null);
@@ -33,7 +36,7 @@ export function DragOverlayWrapper() {
     if (!element) return null;
     const DesignerElement = FormElements[element.type].designerComponent;
     node = (
-      <div className="flex bg-accent border rounded-md h-[120px] w-full py-2 px-4 opacity-80 pointer-events-none">
+      <div className="pointer-events-none flex h-[120px] w-full rounded-md border bg-accent px-4 py-2 opacity-80">
         <DesignerElement elementInstance={element} />
       </div>
     );

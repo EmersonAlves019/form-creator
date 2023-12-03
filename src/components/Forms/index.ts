@@ -1,2 +1,2 @@
-export {CreateNewForm} from './CreateNewForm'
-export {FormPropertiesForm} from './FormPropertiesForm'
+export { CreateNewForm } from './CreateNewForm';
+export { FormPropertiesForm } from './FormPropertiesForm';

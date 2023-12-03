@@ -1,6 +1,13 @@
-import Link from 'next/link';
-import { formatDistance } from 'date-fns';
+'use client';
 
+import { formatDistance } from 'date-fns';
+import Link from 'next/link';
+import { BiRightArrowAlt } from 'react-icons/bi';
+import { FaEdit, FaWpforms } from 'react-icons/fa';
+import { LuView } from 'react-icons/lu';
+
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -9,14 +16,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { LuView } from 'react-icons/lu';
-import { FaWpforms } from 'react-icons/fa';
-import { BiRightArrowAlt } from 'react-icons/bi';
-import { FaEdit } from 'react-icons/fa';
 
-import { FormCardProps } from './@types';
-import { Button } from '@/components/ui/button';
+import type { FormCardProps } from './@types';
 
 export function FormCard({ form }: FormCardProps) {
   return (
@@ -24,11 +25,9 @@ export function FormCard({ form }: FormCardProps) {
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
           <span className="truncate font-bold">{form.name}</span>
-          {
-            <Badge variant={!form.published ? 'destructive' : 'default'}>
-              {form.published ? 'Published' : 'Draft'}
-            </Badge>
-          }
+          <Badge variant={!form.published ? 'destructive' : 'default'}>
+            {form.published ? 'Published' : 'Draft'}
+          </Badge>
         </CardTitle>
         <CardDescription className="flex items-center justify-between text-sm">
           {formatDistance(form.createdAt, new Date(), { addSuffix: true })}
@@ -50,7 +49,7 @@ export function FormCard({ form }: FormCardProps) {
           <Button
             asChild
             variant="secondary"
-            className="w-full mt-2 text-md gap-4 "
+            className="text-md mt-2 w-full gap-4"
           >
             <Link href={`/forms/${form.id}`}>
               View submissions <BiRightArrowAlt />
@@ -61,7 +60,7 @@ export function FormCard({ form }: FormCardProps) {
           <Button
             asChild
             variant="secondary"
-            className="w-full mt-2 text-md gap-4 "
+            className="text-md mt-2 w-full gap-4"
           >
             <Link href={`/builder/${form.id}`}>
               Edit form <FaEdit />
