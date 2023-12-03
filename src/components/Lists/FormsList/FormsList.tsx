@@ -1,6 +1,5 @@
 import { getForms } from '@/actions/form';
-import { FormCard, FormCardSkeleton } from '@/components/Cards';
-import { Suspense } from 'react';
+import { FormCard } from '@/components/Cards';
 
 export async function FormCards() {
   const forms = await getForms();

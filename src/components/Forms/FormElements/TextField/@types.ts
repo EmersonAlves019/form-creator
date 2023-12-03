@@ -1,12 +1,7 @@
-export type ElementsType = 'TextField';
+import { FormElementInstance } from "../@types";
+import { TextFieldCustomProperties} from "./";
 
-export type FormElement = {
-  type: ElementsType;
-  designerComponent: React.FC;
-  formComponent: React.FC;
-  propertiesComponent: React.FC;
-};
 
-export type FormElementsType = {
-  [key in ElementsType]: FormElement;
-}
+export type TextFieldInstance = FormElementInstance & {
+  properties: typeof TextFieldCustomProperties;
+} ;

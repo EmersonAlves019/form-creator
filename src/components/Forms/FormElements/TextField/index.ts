@@ -1,23 +1,24 @@
-import { ElementsType, FormElement } from "../@types";
+import { ElementsType, FormElement} from "../@types";
 import { MdTextFields } from "react-icons/md";
 import { TextFieldDesigner } from "./TextFieldDesigner";
 import { TextFieldForm } from "./TextFieldForm";
 import { TextFieldProperties } from "./TextFieldProperties";
 
-
 const type: ElementsType = 'TextField';
+
+export const TextFieldCustomProperties = {
+  label: 'Text Field',
+  helperText: 'Helper text',
+  required: false,
+  placeholder: 'Your text here',
+}
 
 export const TextFieldFormElement: FormElement = {
   type,
   construct: (id: string) => ({
     id,
     type,
-    properties: {
-      label: 'Text Field',
-      helperText: 'Helper text',
-      required: false,
-      placeholder: 'Your text here',
-    }
+    properties: TextFieldCustomProperties,
   }),
   designerButtonElement: {
     icon: MdTextFields,

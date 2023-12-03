@@ -1,5 +1,9 @@
 export type ElementsType = 'TextField';
 
+export type FormElementDesignerProps = {
+  elementInstance: FormElementInstance;
+}
+
 export type FormElement = {
   type: ElementsType;
 
@@ -10,7 +14,7 @@ export type FormElement = {
     label: string;
   }
 
-  designerComponent: React.FC;
+  designerComponent: React.FC<FormElementDesignerProps>;
   formComponent: React.FC;
   propertiesComponent: React.FC;
 };

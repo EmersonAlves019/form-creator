@@ -3,7 +3,7 @@ import { MdOutlinePublish } from 'react-icons/md';
 
 export function PublishFormButton() {
   return (
-    <Button className="gap-2 bg-gradient-to-r from-primary to-cyan-400">
+    <Button className="gap-2 bg-gradient-to-r from-primary to-cyan-400 hover:brightness-90 hover:shadow-lg">
       <MdOutlinePublish className="h-6 w-6" />
       Publish
     </Button>
