@@ -45,14 +45,19 @@ export function DesignerFormElementWrapper({
     },
   });
 
-  if (draggable.isDragging) return null;
+  if (draggable.isDragging) {
+    if (mouseIsOver) {
+      setMouseIsOver(false);
+    }
+    return null;
+  }
 
   return (
     <div
       ref={draggable.setNodeRef}
       {...draggable.attributes}
       {...draggable.listeners}
-      className="relative flex h-[120px] flex-col rounded-md text-foreground ring-1 ring-foreground/40 hover:cursor-pointer"
+      className="relative flex h-[120px] flex-col rounded-md text-foreground ring-1 ring-muted-foreground/40 hover:cursor-pointer"
       onMouseEnter={() => setMouseIsOver(true)}
       onMouseLeave={() => setMouseIsOver(false)}
       onClick={(e) => {
@@ -87,7 +92,7 @@ export function DesignerFormElementWrapper({
       )}
       <div
         className={cn(
-          'flex w-full h-[120px] items-center rounded-md bg-accent/80 px-4 py-2 pointer-events-none opacity-100',
+          'flex w-full h-[120px] items-center rounded-md bg-accent/60 px-4 py-2 pointer-events-none opacity-100',
           mouseIsOver && 'opacity-30'
         )}
       >

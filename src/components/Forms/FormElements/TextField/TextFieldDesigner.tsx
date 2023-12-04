@@ -9,7 +9,7 @@ export function TextFieldDesigner({
 }: FormElementDesignerProps) {
   const element = elementInstance as TextFieldInstance;
 
-  const { label, placeholder, required, helperText } = element.properties;
+  const { label, placeHolder, required, helperText } = element.properties;
 
   return (
     <div className="flex w-full flex-col gap-2">
@@ -17,7 +17,7 @@ export function TextFieldDesigner({
         {label}
         {required && '*'}
       </Label>
-      <Input readOnly disabled placeholder={placeholder} />
+      <Input readOnly disabled placeholder={placeHolder} />
       {helperText && (
         <p className="text-sm text-muted-foreground">{helperText}</p>
       )}

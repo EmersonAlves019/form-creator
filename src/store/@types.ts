@@ -5,6 +5,10 @@ export type FormElementsSlice = {
   selectedElement: FormElementInstance | null;
   actions: {
     addElement: (index: number, element: FormElementInstance) => void;
+    updateElementProperties: (
+      id: string,
+      properties: Record<string, any>
+    ) => void;
     removeElement: (elementId: string) => void;
     setSelectedElement: (element: FormElementInstance | null) => void;
   };

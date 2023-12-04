@@ -16,6 +16,13 @@ export const createFormElementsSlice: StateCreator<FormElementsSlice> = (
         elements.splice(index, 0, element);
         return { elements };
       }),
+    updateElementProperties: (id: string, properties: Record<string, any>) =>
+      set((state: FormElementsSlice) => {
+        const elements = [...state.elements];
+        const elementIndex = elements.findIndex((e) => e.id === id);
+        elements[elementIndex].properties = properties;
+        return { elements };
+      }),
     removeElement: (elementId: string) =>
       set((state: FormElementsSlice) => ({
         elements: state.elements.filter((e) => e.id !== elementId),

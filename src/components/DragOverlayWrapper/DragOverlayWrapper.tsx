@@ -32,11 +32,11 @@ export function DragOverlayWrapper() {
   const isDesignerElement = draggedItem?.data?.current?.isDesignerElement;
   if (isDesignerElement) {
     const elementId = draggedItem?.data?.current?.elementId;
-    const element = elements.find((element) => element.id === elementId);
+    const element = elements.find((el) => el.id === elementId);
     if (!element) return null;
     const DesignerElement = FormElements[element.type].designerComponent;
     node = (
-      <div className="pointer-events-none flex h-[120px] w-full rounded-md border bg-accent px-4 py-2 opacity-80">
+      <div className="pointer-events-none flex h-[120px] w-full rounded-md border bg-accent/80 px-4 py-2 opacity-80">
         <DesignerElement elementInstance={element} />
       </div>
     );

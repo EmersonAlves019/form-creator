@@ -11,7 +11,7 @@ export const TextFieldCustomProperties = {
   label: 'Text Field',
   helperText: 'Helper text',
   required: false,
-  placeholder: 'Your text here',
+  placeHolder: 'Your text here',
 };
 
 export const TextFieldFormElement: FormElement = {
