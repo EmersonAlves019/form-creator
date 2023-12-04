@@ -8,3 +8,7 @@ export type TextFieldInstance = FormElementInstance & {
 export type TextFieldPropertiesFormProps = {
   elementInstance: FormElementInstance;
 };
+
+export type TextFieldFormComponentProps = {
+  elementInstance: TextFieldInstance;
+};

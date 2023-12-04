@@ -8,10 +8,10 @@ import {
   useSensors,
 } from '@dnd-kit/core';
 
-import { PreviewDialogButton } from '../Buttons/PreviewDialogButton';
 import { PublishFormButton } from '../Buttons/PublishFormButton';
 import { SaveFormButton } from '../Buttons/SaveFormButton';
 import { Designer } from '../Designer';
+import PreviewFormDialog from '../Dialogs/PreviewFormDialog/PreviewFormDialog';
 import { DragOverlayWrapper } from '../DragOverlayWrapper';
 import type { FormBuilderProps } from './@types';
 
@@ -40,7 +40,7 @@ export function FormBuilder({ form }: FormBuilderProps) {
             {form.name}
           </h2>
           <div className="flex items-center gap-2">
-            <PreviewDialogButton />
+            <PreviewFormDialog />
             {!form.published && (
               <>
                 <SaveFormButton />

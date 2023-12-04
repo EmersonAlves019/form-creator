@@ -41,28 +41,6 @@ export function TextFieldProperties({
         onSubmit={(e) => e.preventDefault()}
         className="space-y-3"
       >
-        {/* <FormField
-          control={form.control}
-          name="label"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel htmlFor="label">Label</FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter') e.currentTarget.blur();
-                  }}
-                />
-              </FormControl>
-              <FormDescription className="text-foreground/70">
-                The label of the field. <br />
-                This will be displayed above the field.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
         <PropertiesFormField
           control={form.control}
           label="Label"
