@@ -13,7 +13,7 @@ import { DesignerFormElements } from '../Lists/DesignerFormElements';
 
 export function Designer() {
   const {
-    actions: { addElement, setSelectedElement },
+    actions: { addElement, setSelectedElement, removeElement },
     elements,
     selectedElement,
   } = useBoundStore((state) => state);
@@ -31,10 +31,71 @@ export function Designer() {
       if (!active || !over) return;
       const isDesignerButtonElement =
         active.data?.current?.isDesignerButtonElement;
-      if (isDesignerButtonElement) {
+
+      const isDroppingOverDesignerDropArea =
+        over.data?.current?.isDesignerDropArea;
+
+      const droppingSidebarButtonOverDesignerDropArea =
+        isDesignerButtonElement && isDroppingOverDesignerDropArea;
+
+      if (droppingSidebarButtonOverDesignerDropArea) {
         const type = active.data?.current?.type as ElementsType;
         const newFormElement = FormElements[type].construct(idGenerator());
         addElement(elements.length, newFormElement);
+      }
+
+      const droppingOverDesignerTopHalf =
+        over.data?.current?.isDesignerElementTopHalf;
+
+      const droppingOverDesignerBottomHalf =
+        over.data?.current?.isDesignerElementBottomHalf;
+
+      const isDroppingOverDesignerElement =
+        droppingOverDesignerTopHalf || droppingOverDesignerBottomHalf;
+
+      const droppingSidebarButtonOverDesignerElement =
+        isDesignerButtonElement && isDroppingOverDesignerElement;
+
+      if (droppingSidebarButtonOverDesignerElement) {
+        const type = active.data?.current?.type as ElementsType;
+        const newFormElement = FormElements[type].construct(idGenerator());
+
+        const overElementId = over.data?.current?.elementId;
+
+        const overElementIndex = elements.findIndex(
+          (el) => el.id === overElementId
+        );
+        if (overElementIndex === -1) return;
+
+        let index = overElementIndex;
+        if (droppingOverDesignerBottomHalf) {
+          index = overElementIndex + 1;
+        }
+
+        addElement(index, newFormElement);
+      }
+
+      const isDraggingDesignerElement = active.data?.current?.isDesignerElement;
+
+      const draggingDesignerElementOverAnotherDesignerElement =
+        isDroppingOverDesignerElement && isDraggingDesignerElement;
+
+      if (draggingDesignerElementOverAnotherDesignerElement) {
+        const activeElementId = active.data?.current?.elementId;
+        const overElementId = over.data?.current?.elementId;
+
+        const activeElementIndex = elements.findIndex(
+          (el) => el.id === activeElementId
+        );
+        const overElementIndex = elements.findIndex(
+          (el) => el.id === overElementId
+        );
+        if (activeElementIndex === -1 || overElementIndex === -1) return;
+
+        const activeElement = elements[activeElementIndex];
+
+        removeElement(activeElementId);
+        addElement(overElementIndex, activeElement);
       }
     },
   });
