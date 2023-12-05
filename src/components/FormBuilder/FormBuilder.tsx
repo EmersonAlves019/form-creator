@@ -7,6 +7,10 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core';
+import { useEffect, useState } from 'react';
+import { FaSpinner } from 'react-icons/fa';
+
+import { useBoundStore } from '@/store/useBoundStore';
 
 import { PublishFormButton } from '../Buttons/PublishFormButton';
 import { SaveFormButton } from '../Buttons/SaveFormButton';
@@ -16,6 +20,9 @@ import { DragOverlayWrapper } from '../DragOverlayWrapper';
 import type { FormBuilderProps } from './@types';
 
 export function FormBuilder({ form }: FormBuilderProps) {
+  const { setElements } = useBoundStore((state) => state.actions);
+  const [isElementsReady, setIsElementsReady] = useState(false);
+
   const mouseSensor = useSensor(MouseSensor, {
     activationConstraint: {
       distance: 10,
@@ -31,6 +38,26 @@ export function FormBuilder({ form }: FormBuilderProps) {
 
   const sensors = useSensors(mouseSensor, touchSensor);
 
+  useEffect(() => {
+    if (isElementsReady) return;
+    const elements = JSON.parse(form.content);
+    setElements(elements);
+    const elementsReadyTimeout = setTimeout(
+      () => setIsElementsReady(true),
+      500
+    );
+    return function cleanup() {
+      clearTimeout(elementsReadyTimeout);
+    };
+  }, [form, setElements, isElementsReady]);
+
+  if (!isElementsReady)
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <FaSpinner className="h-12 w-12 animate-spin" />{' '}
+      </div>
+    );
+
   return (
     <DndContext sensors={sensors}>
       <main className="flex w-full flex-col">
@@ -43,7 +70,7 @@ export function FormBuilder({ form }: FormBuilderProps) {
             <PreviewFormDialog />
             {!form.published && (
               <>
-                <SaveFormButton />
+                <SaveFormButton id={form.id} />
                 <PublishFormButton />
               </>
             )}

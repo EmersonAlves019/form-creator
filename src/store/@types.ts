@@ -4,6 +4,7 @@ export type FormElementsSlice = {
   elements: FormElementInstance[];
   selectedElement: FormElementInstance | null;
   actions: {
+    setElements: (elements: FormElementInstance[]) => void;
     addElement: (index: number, element: FormElementInstance) => void;
     updateElementProperties: (
       id: string,

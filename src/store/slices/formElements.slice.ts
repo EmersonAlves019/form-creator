@@ -10,6 +10,8 @@ export const createFormElementsSlice: StateCreator<FormElementsSlice> = (
   elements: [],
   selectedElement: null,
   actions: {
+    setElements: (elements: FormElementInstance[]) =>
+      set({ elements, selectedElement: null }),
     addElement: (index: number, element: FormElementInstance) =>
       set((state: FormElementsSlice) => {
         const elements = [...state.elements];
@@ -26,6 +28,10 @@ export const createFormElementsSlice: StateCreator<FormElementsSlice> = (
     removeElement: (elementId: string) =>
       set((state: FormElementsSlice) => ({
         elements: state.elements.filter((e) => e.id !== elementId),
+        selectedElement:
+          state.selectedElement?.id === elementId
+            ? null
+            : state.selectedElement,
       })),
     setSelectedElement: (element: FormElementInstance | null) =>
       set({ selectedElement: element }),
