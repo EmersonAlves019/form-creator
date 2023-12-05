@@ -17,6 +17,7 @@ import { SaveFormButton } from '../Buttons/SaveFormButton';
 import { Designer } from '../Designer';
 import { PreviewFormDialog } from '../Dialogs/PreviewFormDialog';
 import { DragOverlayWrapper } from '../DragOverlayWrapper';
+import { PublishedForm } from '../PublishedForm';
 import type { FormBuilderProps } from './@types';
 
 export function FormBuilder({ form }: FormBuilderProps) {
@@ -58,9 +59,11 @@ export function FormBuilder({ form }: FormBuilderProps) {
       </div>
     );
 
+  if (form.published) return <PublishedForm form={form} />;
+
   return (
     <DndContext sensors={sensors}>
-      <main className="flex w-full flex-col">
+      <main className="flex w-full flex-col container">
         <nav className="flex items-center justify-between gap-3 border-b-2 border-border p-4">
           <h2 className="truncate font-medium">
             <span className="mr-2 text-muted-foreground">Form:</span>
@@ -71,7 +74,7 @@ export function FormBuilder({ form }: FormBuilderProps) {
             {!form.published && (
               <>
                 <SaveFormButton id={form.id} />
-                <PublishFormButton />
+                <PublishFormButton id={form.id} />
               </>
             )}
           </div>

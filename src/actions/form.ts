@@ -113,3 +113,19 @@ export async function updateFormContent(id: number, content: string) {
 
   return form;
 }
+
+export async function publishForm(id: number) {
+  const user = await getUser();
+
+  const form = await prisma.form.update({
+    where: {
+      userId: user.id,
+      id,
+    },
+    data: {
+      published: true,
+    },
+  });
+
+  return form;
+}

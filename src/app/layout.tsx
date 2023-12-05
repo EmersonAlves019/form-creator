@@ -3,6 +3,7 @@ import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 
 import { ThemeProvider } from '@/components/providers/themeProvider';
 import { Toaster } from '@/components/ui/toaster';
@@ -23,6 +24,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+          <NextTopLoader />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
