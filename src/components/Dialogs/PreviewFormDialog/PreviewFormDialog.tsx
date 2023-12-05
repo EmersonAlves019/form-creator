@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useBoundStore } from '@/store/useBoundStore';
 
-export default function PreviewFormDialog() {
+export function PreviewFormDialog() {
   const { elements } = useBoundStore((state) => state);
 
   return (

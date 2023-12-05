@@ -11,7 +11,7 @@ import {
 import { PublishFormButton } from '../Buttons/PublishFormButton';
 import { SaveFormButton } from '../Buttons/SaveFormButton';
 import { Designer } from '../Designer';
-import PreviewFormDialog from '../Dialogs/PreviewFormDialog/PreviewFormDialog';
+import { PreviewFormDialog } from '../Dialogs/PreviewFormDialog';
 import { DragOverlayWrapper } from '../DragOverlayWrapper';
 import type { FormBuilderProps } from './@types';
 

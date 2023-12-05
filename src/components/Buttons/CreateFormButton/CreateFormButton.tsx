@@ -11,6 +11,7 @@ import { CreateNewForm } from '@/components/Forms';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -72,9 +73,11 @@ export function CreateFormButton() {
         </div>
 
         <DialogFooter>
-          <Button className="mr-2" variant="outline">
-            Cancel
-          </Button>
+          <DialogClose asChild>
+            <Button className="mr-2" variant="outline">
+              Cancel
+            </Button>
+          </DialogClose>
           <Button
             type="submit"
             onClick={form.handleSubmit(onSubmit)}
