@@ -8,7 +8,6 @@ export default async function SubmitPage({
   params: { formUrl: string };
 }) {
   const { formUrl } = params;
-  console.log('🚀 ~ file: page.tsx:11 ~ formUrl:', formUrl);
   const form = await getFormContentByUrl(formUrl);
 
   if (!form) throw new Error('Form not found');

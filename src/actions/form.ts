@@ -2,6 +2,7 @@
 
 import { currentUser } from '@clerk/nextjs';
 
+import type { FormElementInstance } from '@/components/Forms/FormElements/@types';
 import prisma from '@/lib/prisma';
 import { calculateFormStats } from '@/lib/utils';
 import type { CreateNewFormSchema } from '@/lib/validations/createFormSchema';
@@ -103,8 +104,10 @@ export async function updateFormContent(id: number, content: string) {
   return form;
 }
 
-export async function publishForm(id: number) {
+export async function publishForm(id: number, elements: FormElementInstance[]) {
   const user = await getUser();
+
+  const formElements = JSON.stringify(elements);
 
   const form = await prisma.form.update({
     where: {
@@ -113,6 +116,7 @@ export async function publishForm(id: number) {
     },
     data: {
       published: true,
+      content: formElements,
     },
   });
 

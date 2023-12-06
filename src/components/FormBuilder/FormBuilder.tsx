@@ -63,7 +63,7 @@ export function FormBuilder({ form }: FormBuilderProps) {
 
   return (
     <DndContext sensors={sensors}>
-      <main className="flex w-full flex-col container">
+      <main className="container flex w-full flex-col">
         <nav className="flex items-center justify-between gap-3 border-b-2 border-border p-4">
           <h2 className="truncate font-medium">
             <span className="mr-2 text-muted-foreground">Form:</span>

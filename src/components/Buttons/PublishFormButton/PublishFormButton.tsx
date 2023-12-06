@@ -17,16 +17,18 @@ import {
 } from '@/components/ui/alert-dialog';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
+import { useBoundStore } from '@/store/useBoundStore';
 
 import type { PublishFormButtonProps } from './@types';
 
-export function PublishFormButton({ id }: PublishFormButtonProps) {
+export function PublishFormButton({ id, disabled }: PublishFormButtonProps) {
   const [loading, startTransition] = useTransition();
+  const elements = useBoundStore((state) => state.elements);
   const router = useRouter();
 
   const handlePublishForm = async () => {
     try {
-      await publishForm(id);
+      await publishForm(id, elements);
       toast({
         title: 'Success',
         description: 'Your form is now available to the public.',
@@ -35,7 +37,7 @@ export function PublishFormButton({ id }: PublishFormButtonProps) {
     } catch (error) {
       toast({
         title: 'Error',
-        description: "Couldn't publish the form. Please try again later.",
+        description: 'We could not publish your form. Please try again later.',
         variant: 'destructive',
       });
     }
@@ -44,7 +46,10 @@ export function PublishFormButton({ id }: PublishFormButtonProps) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button className="gap-2 bg-gradient-to-r from-violet-700 to-cyan-400 text-white hover:shadow-lg hover:brightness-90">
+        <Button
+          disabled={disabled}
+          className="gap-2 bg-gradient-to-r from-violet-700 to-cyan-400 text-white hover:shadow-lg hover:brightness-90"
+        >
           <MdOutlinePublish className="h-6 w-6" />
           Publish
         </Button>
