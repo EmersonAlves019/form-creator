@@ -64,7 +64,9 @@
           { "argsIgnorePattern": "^_" }
         ],
         "no-underscore-dangle": "off",
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "vars-on-top": "off",
+        "no-var": "warn"
       }
     }
   ]
