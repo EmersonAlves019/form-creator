@@ -30,7 +30,7 @@ export function SidebarButtonElement({
       {...draggable.attributes}
     >
       <Icon className="h-8 w-8  cursor-grab" />
-      <p className="tex-xs">{label}</p>
+      <p className="text-xs">{label}</p>
     </Button>
   );
 }
@@ -46,7 +46,7 @@ export function SidebarButtonElementOverlay({
       className="flex h-[120px] w-[120px] cursor-grab flex-col gap-2 text-foreground"
     >
       <Icon className="h-8 w-8  cursor-grab" />
-      <p className="tex-xs">{label}</p>
+      <p className="text-xs">{label}</p>
     </Button>
   );
 }
