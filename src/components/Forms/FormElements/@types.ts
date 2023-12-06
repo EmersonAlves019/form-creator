@@ -4,6 +4,13 @@ export type FormElementDesignerProps = {
   elementInstance: FormElementInstance;
 };
 
+export type FormElementFormProps = {
+  elementInstance: FormElementInstance;
+  submitValue?: (key: string, value: any) => void;
+  isInvalid?: boolean;
+  defaultValue?: string;
+};
+
 export type FormElement = {
   type: ElementsType;
 
@@ -15,8 +22,13 @@ export type FormElement = {
   };
 
   designerComponent: React.FC<FormElementDesignerProps>;
-  formComponent: React.FC<FormElementDesignerProps>;
+  formComponent: React.FC<FormElementFormProps>;
   propertiesComponent: React.FC<FormElementDesignerProps>;
+
+  validate: (
+    elementInstance: FormElementInstance,
+    currentValue: string
+  ) => boolean;
 };
 
 export type FormElementInstance = {

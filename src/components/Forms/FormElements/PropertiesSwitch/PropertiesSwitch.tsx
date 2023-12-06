@@ -30,9 +30,9 @@ export function PropertiesSwitch({
           </div>
           <FormControl>
             <Switch
-              checked={field.checked}
+              checked={field.value}
               onCheckedChange={field.onChange}
-              className="border  border-muted-foreground/40"
+              className="ml-2 border border-muted-foreground/40"
             />
           </FormControl>
           <FormMessage />

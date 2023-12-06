@@ -11,7 +11,7 @@ export default function ErrorPage({ error }: { error: Error }) {
   }, [error]);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+    <div className="flex w-full grow flex-col items-center justify-center gap-4">
       <p className="text-4xl text-destructive">Something went wrong!</p>
       <Button asChild>
         <Link href="/">Go back to home</Link>

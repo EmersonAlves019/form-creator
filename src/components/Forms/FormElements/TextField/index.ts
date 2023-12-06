@@ -4,6 +4,7 @@ import type { ElementsType, FormElement } from '../@types';
 import { TextFieldDesigner } from './TextFieldDesigner';
 import { TextFieldForm } from './TextFieldForm';
 import { TextFieldProperties } from './TextFieldProperties';
+import { validate } from './validations';
 
 const type: ElementsType = 'TextField';
 
@@ -28,4 +29,5 @@ export const TextFieldFormElement: FormElement = {
   designerComponent: TextFieldDesigner,
   formComponent: TextFieldForm,
   propertiesComponent: TextFieldProperties,
+  validate,
 };

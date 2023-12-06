@@ -3,6 +3,7 @@ import { calculateFormStats } from '@/lib/utils';
 import { ShareFormLinkButton } from '../Buttons/ShareFormLinkButton';
 import { VisitFormButton } from '../Buttons/VisitFormButton';
 import { StatsCards } from '../Lists/StatsCards';
+import { SubmissionsTable } from '../Tables/SubmissionsTable';
 import type { FormDetailsProps } from './@types';
 
 export function FormDetails({ form }: FormDetailsProps) {
@@ -17,8 +18,8 @@ export function FormDetails({ form }: FormDetailsProps) {
         </div>
       </div>
 
-      <div className="container border-b border-muted">
-        <div className="flex items-center justify-between gap-2 w-full">
+      <div className="container border-b border-muted pb-8">
+        <div className="flex w-full items-center justify-between gap-2">
           <ShareFormLinkButton shareUrl={form.shareUrl} />
         </div>
         <div className="w-full">
@@ -28,6 +29,7 @@ export function FormDetails({ form }: FormDetailsProps) {
           />
         </div>
       </div>
+      <SubmissionsTable formId={form.id} />
     </>
   );
 }

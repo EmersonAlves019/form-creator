@@ -1,16 +1,11 @@
 import { Suspense } from 'react';
 
-import { getFormStats } from '@/actions/form';
 import { CreateFormButton } from '@/components/Buttons/CreateFormButton';
 import { FormCardSkeleton } from '@/components/Cards';
+import { CardStatsWrapper } from '@/components/CardStatsWrapper';
 import { FormCards } from '@/components/Lists/FormCards';
 import { StatsCards } from '@/components/Lists/StatsCards';
 import { Separator } from '@/components/ui/separator';
-
-export async function CardStatsWrapper() {
-  const stats = await getFormStats();
-  return <StatsCards loading={false} data={stats} />;
-}
 
 export default function Page() {
   return (

@@ -1,4 +1,4 @@
-import type { FormElementInstance } from '../@types';
+import type { FormElementFormProps, FormElementInstance } from '../@types';
 import type { TextFieldCustomProperties } from '.';
 
 export type TextFieldInstance = FormElementInstance & {
@@ -9,6 +9,4 @@ export type TextFieldPropertiesFormProps = {
   elementInstance: FormElementInstance;
 };
 
-export type TextFieldFormComponentProps = {
-  elementInstance: TextFieldInstance;
-};
+export type TextFieldFormComponentProps = FormElementFormProps & {};
