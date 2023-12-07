@@ -1,8 +1,12 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Form } from '@/components/ui/form';
-import type { TitleFieldPropertiesSchema } from '@/lib/validations/titleFieldPropertiesSchema';
+import {
+  type TitleFieldPropertiesSchema,
+  titleFieldPropertiesSchema,
+} from '@/lib/validations/titleFieldPropertiesSchema';
 import { useBoundStore } from '@/store/useBoundStore';
 
 import { PropertiesFormField } from '../PropertiesFormField';
@@ -21,6 +25,7 @@ export function TitleFieldProperties({
   const form = useForm<TitleFieldPropertiesSchema>({
     mode: 'onBlur',
     defaultValues: element.properties,
+    resolver: zodResolver(titleFieldPropertiesSchema),
   });
 
   useEffect(() => {

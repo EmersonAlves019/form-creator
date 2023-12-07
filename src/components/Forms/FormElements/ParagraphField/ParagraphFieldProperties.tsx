@@ -4,35 +4,35 @@ import { useForm } from 'react-hook-form';
 
 import { Form } from '@/components/ui/form';
 import {
-  type TitleFieldPropertiesSchema,
-  titleFieldPropertiesSchema,
-} from '@/lib/validations/titleFieldPropertiesSchema';
+  type ParagraphFieldPropertiesSchema,
+  paragraphFieldPropertiesSchema,
+} from '@/lib/validations/paragraphPropertiesSchema';
 import { useBoundStore } from '@/store/useBoundStore';
 
-import { PropertiesFormField } from '../PropertiesFormField';
+import { PropertiesTextarea } from '../PropertiesTextarea';
 import type {
-  SubtitleFieldInstance,
-  SubtitleFieldPropertiesFormProps,
+  ParagraphFieldInstance,
+  ParagraphFieldPropertiesFormProps,
 } from './@types';
 
-export function SubtitleFieldProperties({
+export function ParagraphFieldProperties({
   elementInstance,
-}: SubtitleFieldPropertiesFormProps) {
-  const element = elementInstance as SubtitleFieldInstance;
+}: ParagraphFieldPropertiesFormProps) {
+  const element = elementInstance as ParagraphFieldInstance;
 
   const { updateElementProperties } = useBoundStore((state) => state.actions);
 
-  const form = useForm<TitleFieldPropertiesSchema>({
+  const form = useForm<ParagraphFieldPropertiesSchema>({
     mode: 'onBlur',
     defaultValues: element.properties,
-    resolver: zodResolver(titleFieldPropertiesSchema),
+    resolver: zodResolver(paragraphFieldPropertiesSchema),
   });
 
   useEffect(() => {
     form.reset(element.properties);
   }, [element, form]);
 
-  function applyChanges(values: TitleFieldPropertiesSchema) {
+  function applyChanges(values: ParagraphFieldPropertiesSchema) {
     updateElementProperties(element.id, values);
   }
 
@@ -43,10 +43,10 @@ export function SubtitleFieldProperties({
         onSubmit={(e) => e.preventDefault()}
         className="space-y-3"
       >
-        <PropertiesFormField
+        <PropertiesTextarea
           control={form.control}
-          label="Title"
-          name="title"
+          label="Text"
+          name="text"
           description="The label of the field. This will be displayed above the field."
         />
       </form>

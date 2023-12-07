@@ -1,4 +1,8 @@
-export type ElementsType = 'TextField' | 'TitleField' | 'SubtitleField';
+export type ElementsType =
+  | 'TextField'
+  | 'TitleField'
+  | 'SubtitleField'
+  | 'ParagraphField';
 
 export type FormElementDesignerProps = {
   elementInstance: FormElementInstance;

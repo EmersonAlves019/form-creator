@@ -13,6 +13,7 @@ export function FormElementsSidebar() {
         </p>
         <SidebarButtonElement formElement={FormElements.TitleField} />
         <SidebarButtonElement formElement={FormElements.SubtitleField} />
+        <SidebarButtonElement formElement={FormElements.ParagraphField} />
         <p className="col-span-1 my-2 place-self-start text-sm text-muted-foreground/70 md:col-span-2 ">
           Form elements
         </p>
