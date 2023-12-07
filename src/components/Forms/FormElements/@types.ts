@@ -8,6 +8,7 @@ export type ElementsType =
   | 'NumberField'
   | 'TextareaField'
   | 'DateField'
+  | 'SelectField'
 
 export type FormElementDesignerProps = {
   elementInstance: FormElementInstance;

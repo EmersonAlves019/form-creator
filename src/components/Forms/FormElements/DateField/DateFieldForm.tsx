@@ -68,6 +68,7 @@ export function DateFieldForm({
               if (!valid) return;
               submitValue(element.id, date);
             }}
+            initialFocus
           />
         </PopoverContent>
       </Popover>

@@ -1,7 +1,7 @@
 import type React from 'react';
-import type { Control } from 'react-hook-form';
+import type { Control, UseFormReturn } from 'react-hook-form';
 
-export type PropertiesFromFieldProps = {
+export type PropertiesSelectAddProps = {
   control: Control<any>;
   label: string;
   description: string | React.ReactNode;

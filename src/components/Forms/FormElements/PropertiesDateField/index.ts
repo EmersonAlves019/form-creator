@@ -1,1 +1,0 @@
-export { PropertiesFormField } from './PropertiesFormField';

@@ -82,8 +82,8 @@ export function SubmitForm({ formContent, formUrl }: SubmitFormProps) {
   }
 
   return (
-    <div className="container flex h-[90%] max-h-screen w-full items-center justify-center p-8">
-      <div className="relative h-full w-full max-w-[620px]">
+    <div className="container flex h-full  items-center justify-center p-8">
+      <div className="relative h-[90%] max-h-fit w-full max-w-[620px]">
         <div
           key={renderKey}
           className="relative z-10 flex h-full w-full max-w-[620px] flex-col gap-4 overflow-y-auto  rounded-xl border border-muted-foreground/40 bg-background p-8"

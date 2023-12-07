@@ -77,7 +77,7 @@ export function PublishFormButton({ id, disabled }: PublishFormButtonProps) {
             disabled={loading}
           >
             Proceed
-            {loading && <FaIcons className="mr-2 animate-spin" />}
+            {loading && <FaIcons className="ml-2 animate-spin" />}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

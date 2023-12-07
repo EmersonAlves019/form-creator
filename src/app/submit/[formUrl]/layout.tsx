@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <ThemeSwitcher />
         </nav>
       </div>
-      <main className="flex h-full w-full grow">{children}</main>
+      <main className="flex h-full max-h-[95%] w-full grow">{children}</main>
     </div>
   );
 }
