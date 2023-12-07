@@ -2,7 +2,12 @@ export type ElementsType =
   | 'TextField'
   | 'TitleField'
   | 'SubtitleField'
-  | 'ParagraphField';
+  | 'ParagraphField'
+  | 'SeparatorField'
+  | 'SpacerField'
+  | 'NumberField'
+  | 'TextareaField'
+  | 'DateField'
 
 export type FormElementDesignerProps = {
   elementInstance: FormElementInstance;
